@@ -61,4 +61,5 @@
 }
 :root, html, body  {
 	font-family: Helvetica, sans-serif !important;
+	--font-family-sans-serif: Helvetica, sans-serif !important;
 }
