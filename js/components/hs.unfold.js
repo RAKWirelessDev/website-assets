@@ -26,9 +26,12 @@
       unfoldHideOnBlur: false,
       unfoldDelay: 350,
       unfoldOpenedElement: 'init',
-      afterOpen: function (invoker) {},
-      beforeClose: function (invoker) {},
-      afterClose: function (invoker) {}
+      afterOpen: function (invoker) {
+      },
+      beforeClose: function (invoker) {
+      },
+      afterClose: function (invoker) {
+      }
     },
 
     /**
@@ -103,9 +106,9 @@
 
       $(document).on('click touchstart', 'body', function (e) {
 
-        if(e.target.id == self._baseConfig.unfoldOpenedElement) return;
+        if (e.target.id == self._baseConfig.unfoldOpenedElement) return;
 
-        if($(e.target).closest('#' + self._baseConfig.unfoldOpenedElement).length) return;
+        if ($(e.target).closest('#' + self._baseConfig.unfoldOpenedElement).length) return;
 
         self._pageCollection.each(function (i, el) {
 
@@ -248,8 +251,7 @@
             });
         }
 
-      }
-      else {
+      } else {
 
         $invoker.on('click.HSUnfold', function (e) {
 
@@ -287,6 +289,19 @@
 
         });
 
+        if (Boolean($invoker.data('unfold-target-is-menu'))) {
+
+          var $target = $($invoker.data('unfold-target')),
+            $targetItems = $target.children();
+
+          $targetItems.on('click', function() {
+
+            $invoker.data('HSUnfold').toggle();
+
+          });
+
+        }
+
       }
 
     }
@@ -319,8 +334,7 @@
 
       if (this.defaultState) {
         this.show();
-      }
-      else {
+      } else {
         this.hide();
       }
 
@@ -360,8 +374,7 @@
 
         }
 
-      }
-      else {
+      } else {
 
         if (!target.data('baseDirection')) target.data('baseDirection', {
           direction: 'left',

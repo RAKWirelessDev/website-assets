@@ -59,7 +59,7 @@
         var $this = $(this),
           contentTarget = $this.data('content-target');
 
-        if($(contentTarget).is('input, textarea, select')) {
+        if ($(contentTarget).is('input, textarea, select')) {
           shortcodeArr[contentTarget] = $(contentTarget).val()
         } else {
           shortcodeArr[contentTarget] = $(contentTarget).html();
@@ -74,7 +74,9 @@
           $this = $(el),
           defaultText = $this.get(0).lastChild.nodeValue,
           classChangeTarget = $this.data('class-change-target'),
-          defaultClass = $this.data('default-class');
+          defaultClass = $this.data('default-class'),
+          title = $this.attr('title'),
+          type = $this.data('type');
 
         $this.on('click', function (e) {
           e.preventDefault();
@@ -93,18 +95,26 @@
           var successText = $this.data('success-text'),
             successClass = $this.data('success-class');
 
-          if(!successText && !successClass) return;
+          if (!successText && !successClass) return;
 
-          if(successText) {
-            $this.get(0).lastChild.nodeValue = ' ' + successText + ' ';
+          if (successText) {
+            if (type !== 'tooltip') {
+              $this.get(0).lastChild.nodeValue = ' ' + successText + ' ';
 
-            setTimeout(function () {
-              $this.get(0).lastChild.nodeValue = defaultText;
-            }, 800);
+              setTimeout(function () {
+                $this.get(0).lastChild.nodeValue = defaultText;
+              }, 800);
+            } else {
+              $this.attr('data-original-title', successText).tooltip('show');
+
+              $this.on('mouseleave', function () {
+                $this.attr('data-original-title', title);
+              });
+            }
           }
 
-          if(successClass) {
-            if(!classChangeTarget) {
+          if (successClass) {
+            if (!classChangeTarget) {
               $this.removeClass(defaultClass).addClass(successClass);
 
               setTimeout(function () {
