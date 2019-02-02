@@ -1885,11 +1885,6 @@ pre code {
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder {
-  color: #8c98a4;
-  opacity: 1;
-}
-
 .form-control::-ms-input-placeholder {
   color: #8c98a4;
   opacity: 1;
@@ -19812,6 +19807,10 @@ label.btn {
 
 .height-100vh {
   height: 100vh;
+}
+
+.height-4 {
+  height: .25rem;
 }
 
 .height-380 {
