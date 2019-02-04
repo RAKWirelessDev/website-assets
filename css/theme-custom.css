@@ -2,13 +2,6 @@
     padding-right: 0px!important;
     padding-left: 0px!important;
 }
-@media (min-width: 768px) {
-	.navbar-expand-md .navbar-nav {
-		-ms-flex-direction: row;
-		flex-direction: row;
-		margin-left: auto;
-	}
-}
 #jumpToDropdown {
 	left: -72.3438px;
 }
