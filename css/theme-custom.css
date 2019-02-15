@@ -53,7 +53,7 @@
 	background-repeat: repeat-x;
 }
 .gradient-gray {
-	background-image: linear-gradient(150deg, #545454 0%, #232323 100%);
+	background-image: linear-gradient(150deg, #545454bf 0%, #232323 100%);
 	background-repeat: repeat-x;
 }
 /* :root, html, body  {
@@ -66,4 +66,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .c2a-29 {
 	padding: 0px 29px 0px 29px;
+}
+.c2a-29 > img {
+	max-width: 200px;
 }
