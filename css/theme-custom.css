@@ -70,3 +70,6 @@ h1, h2, h3, h4, h5, h6 {
 .c2a-29 > img {
 	max-width: 150px;
 }
+.dp-ig {
+	display: inline-grid;
+}
